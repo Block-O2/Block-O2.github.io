@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xiaohang LI (Hank)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#08080f;
+  --bg2:#0f0f1a;
+  --bg3:#161625;
+  --border:#222235;
+  --text:#e4e4f0;
+  --muted:#7a7a9a;
+  --accent:#00d4aa;
+  --accent2:#ff6b35;
+  --mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(8,8,15,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-name{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--text);text-decoration:none;letter-spacing:0.02em}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:400;transition:color 0.2s}
+.nav-links a:hover{color:var(--accent)}
+
+.hero{min-height:100vh;display:flex;align-items:center;padding:8rem 2rem 4rem;max-width:900px;margin:0 auto}
+.hero-inner{width:100%}
+.hero-tag{font-family:var(--mono);font-size:0.8rem;color:var(--accent);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.5rem}
+.hero-name{font-family:'Syne',sans-serif;font-size:clamp(3rem,8vw,5.5rem);font-weight:800;line-height:1.05;margin-bottom:0.5rem;color:var(--text)}
+.hero-name span{color:var(--accent)}
+.hero-role{font-family:'Syne',sans-serif;font-size:clamp(1.2rem,3vw,1.8rem);font-weight:400;color:var(--muted);margin-bottom:1.5rem}
+.hero-bio{font-size:1.05rem;color:var(--muted);max-width:560px;margin-bottom:2.5rem;font-weight:300;line-height:1.8}
+.hero-links{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.7rem 1.4rem;border-radius:6px;font-size:0.9rem;font-weight:500;text-decoration:none;transition:all 0.2s;font-family:'DM Sans',sans-serif}
+.btn-primary{background:var(--accent);color:#08080f}
+.btn-primary:hover{background:#00f0c0;transform:translateY(-1px)}
+.btn-secondary{border:1px solid var(--border);color:var(--muted)}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.hero-scroll{margin-top:4rem;display:flex;align-items:center;gap:0.75rem;color:var(--muted);font-size:0.85rem;font-family:var(--mono)}
+.scroll-line{width:40px;height:1px;background:var(--border)}
+
+section{padding:6rem 2rem;max-width:900px;margin:0 auto}
+.section-label{font-family:var(--mono);font-size:0.75rem;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1rem}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.5rem);font-weight:700;margin-bottom:3rem;color:var(--text)}
+.divider{width:100%;height:1px;background:var(--border);margin:0 auto}
+
+.project-featured{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:2rem;transition:border-color 0.2s}
+.project-featured:hover{border-color:rgba(0,212,170,0.3)}
+.demo-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);background:var(--bg3)}
+.demo-tab{padding:0.75rem 1.25rem;font-family:var(--mono);font-size:0.75rem;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;transition:all 0.2s;background:none;border-top:none;border-left:none;border-right:none}
+.demo-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.demo-tab:hover{color:var(--text)}
+.video-wrapper{width:100%;aspect-ratio:16/9;background:#000;position:relative}
+.video-wrapper iframe{width:100%;height:100%;border:none;display:block}
+.project-body{padding:2rem}
+.project-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;flex-wrap:wrap;gap:1rem}
+.project-title{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:700;color:var(--text)}
+.project-date{font-family:var(--mono);font-size:0.75rem;color:var(--muted);background:var(--bg3);padding:0.3rem 0.75rem;border-radius:4px;border:1px solid var(--border)}
+.project-desc{color:var(--muted);font-weight:300;line-height:1.8;margin-bottom:1.5rem;font-size:0.95rem}
+.project-bullets{list-style:none;margin-bottom:1.5rem}
+.project-bullets li{color:var(--muted);font-size:0.9rem;padding:0.3rem 0;padding-left:1.2rem;position:relative;font-weight:300}
+.project-bullets li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:0.8rem}
+.tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.5rem}
+.tag{font-family:var(--mono);font-size:0.72rem;color:var(--accent);background:rgba(0,212,170,0.08);border:1px solid rgba(0,212,170,0.2);padding:0.25rem 0.6rem;border-radius:4px}
+.project-links{display:flex;gap:0.75rem}
+.project-link{font-size:0.85rem;color:var(--muted);text-decoration:none;font-family:var(--mono);border:1px solid var(--border);padding:0.4rem 0.9rem;border-radius:5px;transition:all 0.2s}
+.project-link:hover{color:var(--accent);border-color:var(--accent)}
+
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+.project-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.5rem;transition:all 0.2s}
+.project-card:hover{transform:translateY(-2px);border-color:rgba(0,212,170,0.2)}
+.card-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:600;margin-bottom:0.5rem;color:var(--text)}
+.card-desc{font-size:0.88rem;color:var(--muted);line-height:1.7;margin-bottom:1rem;font-weight:300}
+.card-footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem}
+.card-date{font-family:var(--mono);font-size:0.72rem;color:var(--muted)}
+.card-status{font-family:var(--mono);font-size:0.68rem;color:var(--accent2);background:rgba(255,107,53,0.08);border:1px solid rgba(255,107,53,0.2);padding:0.2rem 0.5rem;border-radius:3px}
+
+.edu-list{display:flex;flex-direction:column;gap:1.5rem}
+.edu-item{display:flex;gap:2rem;padding:1.5rem;background:var(--bg2);border:1px solid var(--border);border-radius:10px;transition:border-color 0.2s}
+.edu-item:hover{border-color:rgba(0,212,170,0.2)}
+.edu-year{font-family:var(--mono);font-size:0.75rem;color:var(--muted);min-width:90px;padding-top:0.2rem}
+.edu-school{font-family:'Syne',sans-serif;font-size:1rem;font-weight:600;color:var(--text);margin-bottom:0.2rem}
+.edu-degree{font-size:0.9rem;color:var(--muted);font-weight:300;margin-bottom:0.5rem}
+.edu-courses{font-family:var(--mono);font-size:0.75rem;color:var(--muted);line-height:1.6}
+
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem}
+.skill-group{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.5rem}
+.skill-group-title{font-family:var(--mono);font-size:0.75rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem}
+.skill-items{display:flex;flex-wrap:wrap;gap:0.5rem}
+.skill-item{font-size:0.85rem;color:var(--muted);background:var(--bg3);border:1px solid var(--border);padding:0.3rem 0.7rem;border-radius:5px;font-weight:300}
+
+.contact-inner{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:3rem;text-align:center}
+.contact-title{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:700;margin-bottom:1rem}
+.contact-sub{color:var(--muted);font-weight:300;margin-bottom:2rem;font-size:0.95rem}
+.contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+
+footer{padding:2rem;text-align:center;color:var(--muted);font-size:0.8rem;font-family:var(--mono);border-top:1px solid var(--border)}
+
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:600px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{gap:1.2rem}
+  section{padding:4rem 1.5rem}
+  .hero{padding:7rem 1.5rem 3rem}
+  .edu-item{flex-direction:column;gap:0.5rem}
+  .project-header{flex-direction:column}
+  .demo-tab{padding:0.6rem 0.9rem;font-size:0.7rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-name">Xiaohang LI</a>
+  <div class="nav-links">
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Robot Manipulation · Embodied AI</div>
+    <h1 class="hero-name">Xiaohang LI<span>.</span></h1>
+    <div class="hero-role">Hank — ECE @ CUHK-Shenzhen</div>
+    <p class="hero-bio">
+      Third-year undergraduate in Electronic &amp; Computer Engineering, specializing in robot manipulation and embodied AI. Interested in the intersection of computer vision and motion control for real-world robotic systems.
+    </p>
+    <div class="hero-links">
+      <a href="https://github.com/Block-O2" target="_blank" class="btn btn-primary">GitHub</a>
+      <a href="YOUR_CV_LINK" target="_blank" class="btn btn-secondary">CV / Resume</a>
+      <a href="mailto:lih056957@gmail.com" class="btn btn-secondary">Email</a>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      scroll to explore
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="projects">
+  <div class="section-label">Work</div>
+  <h2 class="section-title">Projects</h2>
+
+  <div class="project-featured fade-in">
+    <div class="demo-tabs">
+      <button class="demo-tab active" onclick="switchDemo(0)">Demo 1 — Single pick/place</button>
+      <button class="demo-tab" onclick="switchDemo(1)">Demo 2 — Multi-step stress test</button>
+      <button class="demo-tab" onclick="switchDemo(2)">Demo 3 — Open-vocabulary</button>
+    </div>
+    <div class="video-wrapper">
+      <iframe id="demo-frame"
+        src="https://www.youtube.com/embed/4V7Y5Qn2Jmw"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+    <div class="project-body">
+      <div class="project-header">
+        <div class="project-title">Sagittarius Semantic Grasping</div>
+        <div class="project-date">Mar – May 2026</div>
+      </div>
+      <p class="project-desc">
+        End-to-end semantic grasping pipeline on a real robot arm. Takes natural language instructions as input and executes physical pick-and-place tasks — closing the full loop from perception to hardware execution.
+      </p>
+      <ul class="project-bullets">
+        <li>Built motion planning and execution framework with ROS1 and MoveIt; handles the full perception–planning–control pipeline</li>
+        <li>Integrated GroundingDINO open-vocabulary detection with nine-point perspective calibration for image-to-workspace coordinate mapping</li>
+        <li>Designed a two-stage pick/place state machine with HSV color filtering and contour-center refinement; supports multi-step same-color sorting and low-confidence rejection</li>
+        <li>Independently integrated and deployed on a real Sagittarius arm — stable, language-driven end-to-end operation in all three demo scenarios</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">ROS1</span>
+        <span class="tag">MoveIt</span>
+        <span class="tag">GroundingDINO</span>
+        <span class="tag">Python</span>
+        <span class="tag">OpenCV</span>
+        <span class="tag">Hand-Eye Calibration</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/Block-O2/sagittarius-semantic-grasp" target="_blank" class="project-link">GitHub →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="projects-grid">
+    <div class="project-card fade-in">
+      <div class="card-title">ABS Quadruped Robot Deployment</div>
+      <p class="card-desc">Built the full data pipeline for a Go2 quadruped — policy inference, state reading, and control command publishing. Debugged multi-sensor alignment across IMU, joint state, foot contact, and LiDAR.</p>
+      <div class="tags" style="margin-bottom:0.75rem">
+        <span class="tag">ROS</span>
+        <span class="tag">IMU</span>
+        <span class="tag">LiDAR</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-date">Feb – May 2026</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="card-title">NavRL Environment Replication</div>
+      <p class="card-desc">Reproduced the NavRL navigation training environment in Isaac Sim. Resolved library version conflicts and training pipeline issues; documented the full setup and debugging process.</p>
+      <div class="tags" style="margin-bottom:0.75rem">
+        <span class="tag">Isaac Sim</span>
+        <span class="tag">RL</span>
+        <span class="tag">Python</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-date">Feb – May 2026</span>
+        <a href="https://github.com/Block-O2/NavRL_replication" target="_blank" class="project-link" style="font-size:0.8rem;padding:0.3rem 0.7rem">GitHub →</a>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="card-title">MT3 Dynamic Alignment Extension</div>
+      <p class="card-desc">Extended MT3's static GICP alignment to continuous tracking — enabling grasp of moving objects from a single static demo using Kalman filtering and SE(2) pose estimation. 66 unit tests, all passing.</p>
+      <div class="tags" style="margin-bottom:0.75rem">
+        <span class="tag">Kalman Filter</span>
+        <span class="tag">SE(2)</span>
+        <span class="tag">PyBullet</span>
+        <span class="tag">Python</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-date">May 2026</span>
+        <span class="card-status">Synthetic testing only</span>
+        <a href="https://github.com/Block-O2/MT3-Dynamic-Alignment" target="_blank" class="project-link" style="font-size:0.8rem;padding:0.3rem 0.7rem">GitHub →</a>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="card-title">RL Inverted Pendulum Control</div>
+      <p class="card-desc">Modeled an inverted pendulum in MATLAB/Simulink. Designed state space, action space, and reward function. Compared Q-learning and PD control performance in swing-up and balance tasks.</p>
+      <div class="tags" style="margin-bottom:0.75rem">
+        <span class="tag">MATLAB</span>
+        <span class="tag">Q-Learning</span>
+        <span class="tag">PD Control</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-date">Sep – Dec 2025 · Berkeley</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="education">
+  <div class="section-label">Background</div>
+  <h2 class="section-title">Education</h2>
+  <div class="edu-list">
+    <div class="edu-item fade-in">
+      <div class="edu-year">2023 – present</div>
+      <div class="edu-content">
+        <div class="edu-school">The Chinese University of Hong Kong, Shenzhen</div>
+        <div class="edu-degree">B.Eng. Electronic &amp; Computer Engineering (EE Track) · Shenzhen, China</div>
+        <div class="edu-courses">Courses: Robot Manipulation · Signals &amp; Systems · Data Structures · Digital Logic · Linear Algebra</div>
+      </div>
+    </div>
+    <div class="edu-item fade-in">
+      <div class="edu-year">Fall 2025</div>
+      <div class="edu-content">
+        <div class="edu-school">University of California, Berkeley</div>
+        <div class="edu-degree">Visiting Student · Berkeley, CA</div>
+        <div class="edu-courses">EECS128 Feedback Control Systems · CS61C Computer Architecture · CS70 Discrete Math &amp; Probability</div>
+      </div>
+    </div>
+    <div class="edu-item fade-in">
+      <div class="edu-year">Summer 2024</div>
+      <div class="edu-content">
+        <div class="edu-school">University of California, San Diego</div>
+        <div class="edu-degree">Summer Session · San Diego, CA</div>
+        <div class="edu-courses">Electromagnetics · Microeconomics</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="skills">
+  <div class="section-label">Tools &amp; Stack</div>
+  <h2 class="section-title">Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-group fade-in">
+      <div class="skill-group-title">Robotics</div>
+      <div class="skill-items">
+        <span class="skill-item">ROS1</span>
+        <span class="skill-item">MoveIt</span>
+        <span class="skill-item">MuJoCo</span>
+        <span class="skill-item">Isaac Sim</span>
+        <span class="skill-item">Hand-Eye Calib.</span>
+        <span class="skill-item">Motion Planning</span>
+      </div>
+    </div>
+    <div class="skill-group fade-in">
+      <div class="skill-group-title">Programming</div>
+      <div class="skill-items">
+        <span class="skill-item">Python</span>
+        <span class="skill-item">MATLAB</span>
+        <span class="skill-item">C</span>
+        <span class="skill-item">C++ (basic)</span>
+        <span class="skill-item">Git</span>
+        <span class="skill-item">Linux</span>
+      </div>
+    </div>
+    <div class="skill-group fade-in">
+      <div class="skill-group-title">AI / Perception</div>
+      <div class="skill-items">
+        <span class="skill-item">GroundingDINO</span>
+        <span class="skill-item">OpenCV</span>
+        <span class="skill-item">Point Clouds</span>
+        <span class="skill-item">RL (PPO/SAC)</span>
+      </div>
+    </div>
+    <div class="skill-group fade-in">
+      <div class="skill-group-title">Control Theory</div>
+      <div class="skill-items">
+        <span class="skill-item">PD Control</span>
+        <span class="skill-item">Impedance Control</span>
+        <span class="skill-item">Trajectory Planning</span>
+        <span class="skill-item">Jacobian / IK / FK</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="contact">
+  <div class="contact-inner fade-in">
+    <div class="section-label" style="margin-bottom:0.75rem">Get in Touch</div>
+    <h2 class="contact-title">Let's connect</h2>
+    <p class="contact-sub">Currently looking for research collaborations and targeting MS programs in robotics for Fall 2027.</p>
+    <div class="contact-links">
+      <a href="mailto:lih056957@gmail.com" class="btn btn-primary">Email me</a>
+      <a href="https://github.com/Block-O2" target="_blank" class="btn btn-secondary">GitHub</a>
+      <a href="YOUR_LINKEDIN" target="_blank" class="btn btn-secondary">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Xiaohang LI · Built with HTML/CSS · Hosted on GitHub Pages
+</footer>
+
+<script>
+const demos = [
+  'https://www.youtube.com/embed/4V7Y5Qn2Jmw',
+  'https://www.youtube.com/embed/vSotKdQC2tA',
+  'https://www.youtube.com/embed/i96AO-EEe4g'
+];
+const tabs = document.querySelectorAll('.demo-tab');
+function switchDemo(idx) {
+  document.getElementById('demo-frame').src = demos[idx];
+  tabs.forEach((t,i) => t.classList.toggle('active', i === idx));
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
