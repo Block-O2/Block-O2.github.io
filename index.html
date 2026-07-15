@@ -624,14 +624,10 @@
   <main id="top">
     <section class="hero">
       <div class="container">
-        <p class="eyebrow">Robotics · Control · Autonomous Systems</p>
         <h1>Xiaohang Li</h1>
-        <p class="hero-role">Robotics &amp; Control Engineering Student</p>
-
         <p class="hero-copy">
           Electronic and Computer Engineering undergraduate at CUHK-Shenzhen.
-          I build robotic systems across control, perception, motion planning,
-          state estimation, and simulation.
+          Interested in robotics, control, and physical AI.
         </p>
 
         <div class="link-row">
@@ -669,11 +665,14 @@
               Supervised by Prof. Fangxun Zhong
             </p>
             <p>
-              Developing and evaluating adaptive model predictive control for a
-              compliant traction task under uncertain dynamics. The current system
-              combines constrained NMPC, state estimation, and online parameter
-              identification, with explicit force, deformation, velocity, and
-              acceleration considerations.
+              This project explores how a robot can provide safe and consistent
+              traction assistance for lower-limb rehabilitation when the mechanical
+              properties of the patient and device are not known in advance. We aim
+              to regulate both motion and interaction force while allowing the
+              controller to gradually learn from normal rehabilitation movements,
+              without requiring additional excitation. The work begins in simulation
+              and will later be extended to more realistic articulated models and
+              hardware experiments.
             </p>
             <p style="margin-top: 16px;">
               <a class="text-link" href="https://github.com/Block-O2/adaptive-traction-mpc" target="_blank" rel="noopener">
@@ -684,17 +683,18 @@
 
           <aside class="work-meta" aria-label="Research metadata">
             <div class="meta-block">
-              <div class="meta-label">Current scope</div>
+              <div class="meta-label">Background</div>
               <div class="meta-value">
-                Spring2D simulation, planner–tracker NMPC, UKF-based estimation,
-                and windowed parameter identification
+                Safe robot-assisted traction for lower-limb rehabilitation under
+                uncertain patient and device dynamics
               </div>
             </div>
 
             <div class="meta-block">
-              <div class="meta-label">Development path</div>
+              <div class="meta-label">Approach</div>
               <div class="meta-value">
-                Compliant single-link model → articulated systems → MuJoCo → hardware
+                Model predictive control with online adaptation from normal
+                rehabilitation motion
               </div>
             </div>
           </aside>
