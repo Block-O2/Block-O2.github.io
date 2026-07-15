@@ -613,7 +613,8 @@
       <a class="brand" href="#top">Xiaohang Li</a>
 
       <ul class="nav-links">
-        <li><a href="#work">Work</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="Xiaohang_Li_CV.pdf" target="_blank" rel="noopener">Resume</a></li>
       </ul>
@@ -640,22 +641,22 @@
           <a class="button" href="https://github.com/Block-O2" target="_blank" rel="noopener">
             GitHub
           </a>
-          <a class="button" href="mailto:lih056957@gmail.com">
-            Email
+          <a class="button" href="https://www.linkedin.com/in/hank-li-a7a9a5380" target="_blank" rel="noopener">
+            LinkedIn
           </a>
+          <a class="button" href="mailto:lih056957@gmail.com">Email</a>
         </div>
       </div>
     </section>
 
-    <section id="work">
+    <section id="research">
       <div class="container">
         <div class="section-heading">
-          <p class="section-label">Current work</p>
+          <p class="section-label">Research</p>
           <div>
-            <h2>Ongoing research</h2>
+            <h2>Research</h2>
             <p class="section-intro">
-              Current work in constrained control for physical interaction,
-              developed from simple simulation toward more realistic robotic systems.
+              Ongoing work in constrained control for compliant physical interaction.
             </p>
           </div>
         </div>
@@ -664,27 +665,36 @@
           <div>
             <div class="status">Ongoing</div>
             <h3>Adaptive Traction Control with Constrained MPC</h3>
+            <p style="margin: -2px 0 14px; color: #475467; font-size: 0.9rem; font-weight: 600;">
+              Supervised by Prof. Fangxun Zhong
+            </p>
             <p>
-              Developing a simulation and control framework for constrained
-              robot–object interaction under uncertain dynamics. The work combines
-              model predictive control, state estimation, and online parameter
-              identification, with explicit force, deformation, and motion-safety
-              constraints.
+              Developing and evaluating adaptive model predictive control for a
+              compliant traction task under uncertain dynamics. The current system
+              combines constrained NMPC, state estimation, and online parameter
+              identification, with explicit force, deformation, velocity, and
+              acceleration considerations.
+            </p>
+            <p style="margin-top: 16px;">
+              <a class="text-link" href="https://github.com/Block-O2/adaptive-traction-mpc" target="_blank" rel="noopener">
+                Research repository ↗
+              </a>
             </p>
           </div>
 
-          <aside class="work-meta" aria-label="Project metadata">
+          <aside class="work-meta" aria-label="Research metadata">
             <div class="meta-block">
-              <div class="meta-label">Development path</div>
+              <div class="meta-label">Current scope</div>
               <div class="meta-value">
-                2D compliant model → articulated systems → MuJoCo → hardware
+                Spring2D simulation, planner–tracker NMPC, UKF-based estimation,
+                and windowed parameter identification
               </div>
             </div>
 
             <div class="meta-block">
-              <div class="meta-label">Technical focus</div>
+              <div class="meta-label">Development path</div>
               <div class="meta-value">
-                MPC, state estimation, system identification, constrained control
+                Compliant single-link model → articulated systems → MuJoCo → hardware
               </div>
             </div>
           </aside>
@@ -692,15 +702,15 @@
       </div>
     </section>
 
-    <section>
+    <section id="projects">
       <div class="container">
         <div class="section-heading">
-          <p class="section-label">Selected projects</p>
+          <p class="section-label">Projects</p>
           <div>
-            <h2>Engineering work</h2>
+            <h2>Projects</h2>
             <p class="section-intro">
-              Projects selected for system integration, implementation depth,
-              and measurable validation.
+              Selected work in robot manipulation, perception, simulation,
+              system debugging, and control.
             </p>
           </div>
         </div>
@@ -708,133 +718,102 @@
         <div class="project-list">
           <article class="project">
             <div class="project-number">01</div>
-
             <div>
               <h3>Sagittarius Semantic Grasping</h3>
               <p class="project-description">
-                Language-guided perception, planning, and execution pipeline
-                deployed on a physical Sagittarius robot arm.
+                Language-guided semantic grasping pipeline deployed on a physical
+                Sagittarius robot arm.
               </p>
-
               <ul class="project-points">
                 <li>
                   Integrated GroundingDINO, calibrated pixel-to-workspace mapping,
-                  ROS1, and MoveIt into a complete manipulation pipeline.
+                  ROS1, and MoveIt into a complete perception–planning–execution pipeline.
                 </li>
                 <li>
-                  Implemented multi-step pick-and-place execution, confidence
-                  rejection, and visual refinement for reliable real-robot operation.
+                  Implemented multi-step pick-and-place execution, confidence rejection,
+                  and visual refinement for reliable real-robot operation.
                 </li>
               </ul>
-
               <div class="stack">
                 ROS1 · MoveIt · GroundingDINO · OpenCV · Python · Calibration
               </div>
             </div>
-
             <div class="project-links">
-              <a
-                class="text-link"
-                href="https://github.com/Block-O2/sagittarius-semantic-grasp"
-                target="_blank"
-                rel="noopener"
-              >
-                GitHub ↗
-              </a>
-              <a
-                class="text-link"
-                href="https://www.youtube.com/watch?v=4V7Y5Qn2Jmw"
-                target="_blank"
-                rel="noopener"
-              >
-                Demo ↗
-              </a>
+              <a class="text-link" href="https://github.com/Block-O2/sagittarius-semantic-grasp" target="_blank" rel="noopener">GitHub ↗</a>
+              <a class="text-link" href="https://www.youtube.com/watch?v=i96AO-EEe4g" target="_blank" rel="noopener">Demo video ↗</a>
             </div>
           </article>
 
           <article class="project">
             <div class="project-number">02</div>
-
             <div>
               <h3>MT3 Dynamic Alignment Extension</h3>
               <p class="project-description">
-                Extended a static alignment pipeline toward continuous object tracking
-                using Kalman filtering and SE(2) pose estimation.
+                Extended MT3's static alignment pipeline toward continuous tracking
+                of moving objects using Kalman filtering and SE(2) pose estimation.
               </p>
-
               <ul class="project-points">
-                <li>
-                  Designed the dynamic tracking architecture and validated it in
-                  synthetic PyBullet experiments.
-                </li>
-                <li>
-                  Built a 66-test verification suite covering geometry, filtering,
-                  tracking behavior, and failure cases.
-                </li>
+                <li>Designed the dynamic tracking architecture and validated it in synthetic PyBullet experiments.</li>
+                <li>Built a 66-test verification suite covering geometry, filtering, tracking behavior, and failure cases.</li>
               </ul>
-
-              <div class="stack">
-                Python · PyBullet · Kalman Filter · SE(2) · Unit Testing
-              </div>
+              <div class="stack">Python · PyBullet · Kalman Filter · SE(2) · Unit Testing</div>
             </div>
-
             <div class="project-links">
-              <a
-                class="text-link"
-                href="https://github.com/Block-O2/MT3-Dynamic-Alignment"
-                target="_blank"
-                rel="noopener"
-              >
-                GitHub ↗
-              </a>
+              <a class="text-link" href="https://github.com/Block-O2/MT3-Dynamic-Alignment" target="_blank" rel="noopener">GitHub ↗</a>
             </div>
           </article>
-        </div>
-      </div>
-    </section>
 
-    <section>
-      <div class="container">
-        <div class="section-heading">
-          <p class="section-label">Other work</p>
-          <div>
-            <h2>Additional projects</h2>
-          </div>
-        </div>
-
-        <div class="other-grid">
-          <article class="other-card">
-            <h3>Quadruped Sensor Debugging</h3>
-            <p>
-              Diagnosed inconsistent IMU, joint-state, foot-contact, and LiDAR
-              data in a Go2 control stack and documented the troubleshooting process.
-            </p>
-            <div class="stack">ROS · IMU · LiDAR · System Debugging</div>
+          <article class="project">
+            <div class="project-number">03</div>
+            <div>
+              <h3>ABS Quadruped Robot Sensor Debugging</h3>
+              <p class="project-description">
+                Debugged the sensor-data chain for a Go2 quadruped control system,
+                aligning IMU, joint-state, foot-contact, and LiDAR observations.
+              </p>
+              <ul class="project-points">
+                <li>Diagnosed gait instability and observation inconsistencies across multiple sensor streams.</li>
+                <li>Documented the troubleshooting process and verified the corrected data flow.</li>
+              </ul>
+              <div class="stack">ROS · IMU · LiDAR · Sensor Fusion · System Debugging</div>
+            </div>
+            <div class="project-links"></div>
           </article>
 
-          <article class="other-card">
-            <h3>NavRL Environment Replication</h3>
-            <p>
-              Reproduced a navigation training pipeline in Isaac Sim, resolved
-              dependency issues, and verified the policy-training workflow.
-            </p>
-            <a
-              class="text-link"
-              href="https://github.com/Block-O2/NavRL_replication"
-              target="_blank"
-              rel="noopener"
-            >
-              GitHub ↗
-            </a>
+          <article class="project">
+            <div class="project-number">04</div>
+            <div>
+              <h3>NavRL Environment Replication</h3>
+              <p class="project-description">
+                Reproduced a navigation training pipeline in Isaac Sim and verified
+                the policy-training workflow.
+              </p>
+              <ul class="project-points">
+                <li>Configured the simulation and training environment and resolved library and dependency conflicts.</li>
+                <li>Verified the training chain in simulation; real-robot deployment was not attempted.</li>
+              </ul>
+              <div class="stack">Isaac Sim · Reinforcement Learning · Python · C++</div>
+            </div>
+            <div class="project-links">
+              <a class="text-link" href="https://github.com/Block-O2/NavRL_replication" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
           </article>
 
-          <article class="other-card">
-            <h3>Inverted Pendulum Control</h3>
-            <p>
-              Modeled and controlled an inverted pendulum in MATLAB/Simulink,
-              comparing Q-learning with classical feedback control.
-            </p>
-            <div class="stack">MATLAB · Simulink · Q-Learning · PD Control</div>
+          <article class="project">
+            <div class="project-number">05</div>
+            <div>
+              <h3>RL Inverted Pendulum Control</h3>
+              <p class="project-description">
+                Modeled and controlled an inverted pendulum in MATLAB/Simulink,
+                comparing Q-learning with classical feedback control.
+              </p>
+              <ul class="project-points">
+                <li>Defined the state space, action space, and reward structure for swing-up and balancing tasks.</li>
+                <li>Evaluated Q-learning and PD control under the same simulated system.</li>
+              </ul>
+              <div class="stack">MATLAB · Simulink · Q-Learning · PD Control · State-Space Modeling</div>
+            </div>
+            <div class="project-links"></div>
           </article>
         </div>
       </div>
@@ -844,9 +823,7 @@
       <div class="container">
         <div class="section-heading">
           <p class="section-label">Background</p>
-          <div>
-            <h2>Education</h2>
-          </div>
+          <div><h2>Education</h2></div>
         </div>
 
         <div class="education-list">
@@ -854,9 +831,7 @@
             <div class="education-date">2023 — Present</div>
             <div>
               <h3>The Chinese University of Hong Kong, Shenzhen</h3>
-              <p>
-                B.Eng. in Electronic and Computer Engineering, EE track
-              </p>
+              <p>B.Eng. in Electronic and Computer Engineering, EE track</p>
             </div>
           </article>
 
@@ -864,10 +839,15 @@
             <div class="education-date">Fall 2025</div>
             <div>
               <h3>University of California, Berkeley</h3>
-              <p>
-                Visiting student · Feedback control systems, computer architecture,
-                discrete mathematics, and probability
-              </p>
+              <p>Visiting Student</p>
+            </div>
+          </article>
+
+          <article class="education-item">
+            <div class="education-date">Jul — Aug 2024</div>
+            <div>
+              <h3>University of California, San Diego</h3>
+              <p>Summer School</p>
             </div>
           </article>
         </div>
@@ -878,34 +858,21 @@
       <div class="container">
         <div class="section-heading">
           <p class="section-label">Technical focus</p>
-          <div>
-            <h2>Tools and methods</h2>
-          </div>
+          <div><h2>Tools and methods</h2></div>
         </div>
 
         <div class="skills-grid">
           <div class="skills-group">
             <h3>Robotics systems</h3>
-            <p>
-              ROS1, MoveIt, Isaac Sim, MuJoCo, PyBullet, motion planning,
-              calibration, and real-robot integration
-            </p>
+            <p>ROS1, MoveIt, Isaac Sim, MuJoCo, PyBullet, motion planning, calibration, and real-robot integration</p>
           </div>
-
           <div class="skills-group">
             <h3>Control and estimation</h3>
-            <p>
-              Model predictive control, state-space control, trajectory planning,
-              Kalman filtering, state estimation, and system identification
-            </p>
+            <p>Model predictive control, state-space control, trajectory planning, Kalman filtering, state estimation, and system identification</p>
           </div>
-
           <div class="skills-group">
             <h3>Software</h3>
-            <p>
-              Python, MATLAB/Simulink, C, C++, Git, Linux, OpenCV,
-              testing, and simulation-based validation
-            </p>
+            <p>Python, MATLAB/Simulink, C, C++, Git, Linux, OpenCV, testing, and simulation-based validation</p>
           </div>
         </div>
       </div>
@@ -916,16 +883,13 @@
     <div class="container">
       <div class="contact-panel">
         <div>
-          <h2>Interested in robotics, control, or system integration?</h2>
-          <p>
-            I am open to research and engineering opportunities where I can contribute
-            to practical robotic systems and continue developing technical depth.
-          </p>
+          <h2>Contact</h2>
+          <p>Open to research and engineering opportunities in robotics, control, and autonomous systems.</p>
         </div>
-
-        <a class="button" href="mailto:lih056957@gmail.com">
-          Contact me
-        </a>
+        <div class="link-row">
+          <a class="button" href="mailto:lih056957@gmail.com">Email</a>
+          <a class="button" href="https://www.linkedin.com/in/hank-li-a7a9a5380" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
       </div>
     </div>
   </section>
